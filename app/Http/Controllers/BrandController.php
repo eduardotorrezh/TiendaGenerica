@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class BrandController extends Controller
 {
 
-    // public function __construct()
-    // {
+    public function __construct()
+    {
     //     //$this-> middleware('auth'); //Cuando se coloca esto se bloquean todos los métos para la autenticación
     //     $this-> middleware('auth');
-    // }
+    }
 
     /**
      * Display a listing of the resource.
