@@ -20,9 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('marcas', 'BrandController');
-
 Route::resource('proveedores', 'ProviderController');
-
 Route::resource('productos', 'ProductController');
-
+Route::resource('imagenes', 'ImageController');
 Route::get('/home', 'HomeController@index')->name('home');
