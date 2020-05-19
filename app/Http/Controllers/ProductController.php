@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
+use Laravel\Ui\Presets\React;
 
 class ProductController extends Controller
 {
@@ -20,10 +22,14 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        
         $product = Product::all();
         if($request->wantsJson()){
             return $product->toJson();
         }
+
+        return view('products.index', ['products' => $products]);
+        
     }
 
     /**
@@ -75,8 +81,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product= Product::find($id);
-        return  $product;
-        // return  view('products.show',['product'=> $product]);
+        //return  $product;
+        return  view('products.show',['product'=> $product]);
     }
 
     /**

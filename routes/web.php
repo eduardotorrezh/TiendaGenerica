@@ -34,4 +34,9 @@ Route::resource('marcas', 'BrandController');
 Route::resource('proveedores', 'ProviderController');
 Route::resource('productos', 'ProductController');
 Route::resource('imagenes', 'ImageController');
+
+Route::resource('in_carts', 'ProducstInCartController',[
+    "only"=> ['store','destroy']
+]);
+
 Route::get('/home', 'HomeController@index')->name('home');
