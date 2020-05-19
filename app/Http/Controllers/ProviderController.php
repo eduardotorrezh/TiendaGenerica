@@ -19,9 +19,12 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $providers = Provider::paginate(6);
+        $providers = Provider::all();
+        if($request->wantsJson()){
+            return $providers->toJson();
+        }
         return $providers;
         // return view('providers.index', ['providers' => $providers]);
     }

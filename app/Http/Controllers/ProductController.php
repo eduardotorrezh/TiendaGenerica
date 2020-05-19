@@ -18,11 +18,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(6);
-        return $products;
-        // return view('products.index', ['products' => $products]);
+        $product = Product::all();
+        if($request->wantsJson()){
+            return $product->toJson();
+        }
     }
 
     /**
@@ -49,10 +50,15 @@ class ProductController extends Controller
             'brand_id' => $request->brand_id,
             'provider_id' => $request->provider_id,
             'type' => $request->type,
+            'cover_photo' => $request->cover_photo,
             'stock' => $request->stock,
             'description' => $request->description,
             'size' => $request->size,
         ];
+
+        if($request->wantsJson()){
+
+        }
         if(Product::create($options)){
             return redirect('/productos');
         }else{
