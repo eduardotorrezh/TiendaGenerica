@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
+use Laravel\Ui\Presets\React;
 
 class ProductController extends Controller
 {
@@ -18,11 +20,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $sessionName = 'cart_id';
+        $cart_id = $request->session()->get($sessionName);
+        $cart = Cart::findOrCreateById($cart_id);
+        $request->session()->put($sessionName,$cart->id);
+
+
         $products = Product::paginate(6);
-        return $products;
-        // return view('products.index', ['products' => $products]);
+
+        return view('products.index', ['products' => $products, 'cart' => $cart]);
     }
 
     /**
@@ -49,6 +57,7 @@ class ProductController extends Controller
             'brand_id' => $request->brand_id,
             'provider_id' => $request->provider_id,
             'type' => $request->type,
+            'cover_photo' => $request->cover_photo,
             'stock' => $request->stock,
             'description' => $request->description,
             'size' => $request->size,
@@ -69,8 +78,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product= Product::find($id);
-        return  $product;
-        // return  view('products.show',['product'=> $product]);
+        //return  $product;
+        return  view('products.show',['product'=> $product]);
     }
 
     /**
