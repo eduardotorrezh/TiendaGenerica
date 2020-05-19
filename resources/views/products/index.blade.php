@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="row">
-    
-</div>
+<all-products-component></all-products-component>
 
 
 @endsection
