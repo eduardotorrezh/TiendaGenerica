@@ -19,9 +19,12 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $brands = Brand::paginate(6);
+        $brands = Brand::all();
+        if($request->wantsJson()){
+            return $brands->toJson();
+        }
         //return $brands;
         return view('brands.index', ['brands' => $brands]);
     }

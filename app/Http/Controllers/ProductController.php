@@ -22,15 +22,14 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $sessionName = 'cart_id';
-        $cart_id = $request->session()->get($sessionName);
-        $cart = Cart::findOrCreateById($cart_id);
-        $request->session()->put($sessionName,$cart->id);
-
-
+        
         $products = Product::paginate(6);
 
-        return view('products.index', ['products' => $products, 'cart' => $cart]);
+        return view('products.index', ['products' => $products]);
+        $product = Product::all();
+        if($request->wantsJson()){
+            return $product->toJson();
+        }
     }
 
     /**
@@ -62,6 +61,10 @@ class ProductController extends Controller
             'description' => $request->description,
             'size' => $request->size,
         ];
+
+        if($request->wantsJson()){
+
+        }
         if(Product::create($options)){
             return redirect('/productos');
         }else{
