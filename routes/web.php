@@ -23,6 +23,7 @@ Route::get('/crearProducto', function(){
     return view('products/create');
 });
 
+
 Route::get('/editarProducto/{id}', function(){
     return view('products/edit');
 });
