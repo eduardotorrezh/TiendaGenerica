@@ -41,6 +41,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('add-product-to-cart-btn', require('./components/products/AddProductInCartComponent.vue').default);
 Vue.component('create-product-component', require('./components/products/CreateProductComponent.vue').default);
 Vue.component('edit-product-component', require('./components/products/editProductComponent.vue').default);
+
+Vue.component('list-component', require('./components/products/TestListProductComponent.vue').default);
 Vue.component('cart-count-products-component', require('./components/carts/CountProductsComponent.vue').default);
 Vue.component('products-shopping-component', require('./components/carts/ProductCartComponent.vue').default);
 Vue.component('productcard-component', require('./components/fragments/ProductCardComponent.vue').default);
