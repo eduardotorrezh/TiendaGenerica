@@ -10,7 +10,7 @@ class ImageController extends Controller
 
     public function __construct()
     {
-        //$this-> middleware('auth'); //Cuando se coloca esto se bloquean todos los métos para la autenticación
+        $this-> middleware('auth'); //Cuando se coloca esto se bloquean todos los métos para la autenticación
         //$this-> middleware('auth');
     }
 
