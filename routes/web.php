@@ -36,4 +36,8 @@ Route::resource('in_carts', 'ProducstInCartController',[
     "only"=> ['store','destroy']
 ]);
 
+Route::get('/carrito', 'CartController@show')->name('carts.show');
+Route::get('/carrito/productos', 'CartController@products')->name('carts.products');
+
+
 Route::get('/home', 'HomeController@index')->name('home');

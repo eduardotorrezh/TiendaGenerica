@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-link">
-                            {{$productsCount}}
+                            <cart-count-products-component :count="{{$productsCount}}"></cart-count-products-component>
                         </li>
                         @guest
                             <li class="nav-item">

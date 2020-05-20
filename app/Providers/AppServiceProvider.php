@@ -39,7 +39,8 @@ class AppServiceProvider extends ServiceProvider
             $cart_id = Session::get($sessionName);
             $cart = Cart::findOrCreateById($cart_id);
             Session::put($sessionName,$cart->id);
-            $view -> with('productsCount',$cart->productsCount());
+            $view -> with('productsCount',$cart->productsCount()
+        );
             // $view -> with('productsCount',$cart->id);
         });
     }

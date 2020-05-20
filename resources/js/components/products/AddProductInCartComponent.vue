@@ -24,7 +24,7 @@ export default {
                      'Content-Type':'application/json'
                  }
              }).then(()=>{
-                //   window.store.commit("increment");
+                   window.store.commit("increment");
                    console.log("ya")
              })
          }
