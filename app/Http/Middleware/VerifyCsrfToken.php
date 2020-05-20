@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         ////Borrar lo que acabo de hacer y dejarlo en blanco
-        '*'
+        ''
     ];
 }
