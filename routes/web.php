@@ -26,6 +26,9 @@ Route::get('/crearProducto', function(){
 Route::get('/editarProducto/{id}', function(){
     return view('products/edit');
 });
+Route::get('/allProducts', function(){
+    return view('products/index');
+});
 
 Route::resource('marcas', 'BrandController');
 Route::resource('proveedores', 'ProviderController');

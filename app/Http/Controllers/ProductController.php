@@ -23,13 +23,13 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         
-        $products = Product::paginate(6);
+        $products = Product::all();
+        if($request->wantsJson()){
+            return $products->toJson();
+        }
 
         return view('products.index', ['products' => $products]);
-        $product = Product::all();
-        if($request->wantsJson()){
-            return $product->toJson();
-        }
+        
     }
 
     /**

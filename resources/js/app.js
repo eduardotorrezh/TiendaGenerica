@@ -43,6 +43,8 @@ Vue.component('create-product-component', require('./components/products/CreateP
 Vue.component('edit-product-component', require('./components/products/editProductComponent.vue').default);
 Vue.component('cart-count-products-component', require('./components/carts/CountProductsComponent.vue').default);
 Vue.component('products-shopping-component', require('./components/carts/ProductCartComponent.vue').default);
+Vue.component('productcard-component', require('./components/fragments/ProductCardComponent.vue').default);
+Vue.component('all-products-component', require('./components/products/ViewAllProductsComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
