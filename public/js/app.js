@@ -2379,6 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2390,6 +2391,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getProducts();
     console.log(this.products);
+    console.log(window.location.host);
   },
   methods: {
     getProducts: function getProducts() {
@@ -2399,6 +2401,10 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(path).then(function (response) {
         _this.products = response.data;
       });
+    },
+    getThisProduct: function getThisProduct(e) {
+      var nextRoute = window.location.protocol + "//" + window.location.host + "/productos/" + e;
+      window.location = nextRoute;
     }
   }
 });
@@ -39389,7 +39395,12 @@ var render = function() {
         {
           key: product.id,
           staticClass: "mx-auto",
-          attrs: { "max-width": "344" }
+          attrs: { "max-width": "344" },
+          on: {
+            click: function($event) {
+              return _vm.getThisProduct(product.id)
+            }
+          }
         },
         [
           _c("v-img", {

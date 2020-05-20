@@ -3,6 +3,7 @@
    <v-card v-for="product in products" v-bind:key="product.id"
    class="mx-auto"
     max-width="344"
+    @click="getThisProduct(product.id)"
   >
     <v-img
       src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -51,6 +52,7 @@ data(){
 mounted(){
     this.getProducts()
     console.log(this.products)
+    console.log(window.location.host)
 },
 methods:{
     getProducts(){
@@ -58,6 +60,10 @@ methods:{
         axios.get(path).then(response=>{
             this.products = response.data
         })
+    },
+    getThisProduct(e){
+        const nextRoute = window.location.protocol + "//" + window.location.host + "/productos/" + e
+        window.location = nextRoute
     }
 }
 
